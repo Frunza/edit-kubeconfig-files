@@ -19,7 +19,7 @@ First of all, let's view your `kubeconfig` file:
 kubectl config view
 ```
 
-If you have more clusters available, you will notice the structure: the `kubeconfig` file contains a list of clusters, contexts and users. For a configuration, the name of the cluster, context and user is identic. While theoretically, it is possible to work manually with the values of those components, it is very easy to mess up.
+If you have more clusters available, you will notice the structure: the `kubeconfig` file contains a list of clusters, contexts and users. For a configuration, the name of the cluster, context and user are identic. While theoretically, it is possible to work manually with the values of those components, it is very easy to mess up.
 
 If you want to add a new context from one of your new clusters, you usually download or obtain the configuration in some way; let's say it is called *myNewConfig.yml*
 
@@ -43,7 +43,7 @@ These commands will delete the *cluster1* configuration.
 
 So, to update a configuration, you should first delete it, and afterwards add it again.
 
-Tip: If you use the same `kubernetes` distribution for different clusters, usually the default context has the same name, like *cluster1* as used in the examples. In such a scenario, it is a good idea to rename the configuration to something else like *devCluster*, *productionCluster*, etc. You can rename the context components (cluster, context and user)in the obtained `kubeconfig` file just before using the `add` command.
+Tip: If you use the same `kubernetes` distribution for different clusters, usually the default context has the same name, like *cluster1* as used in the examples. In such a scenario, it is a good idea to rename the configuration to something else like *devCluster*, *productionCluster*, etc. You can rename the context components (cluster, context and user)in the obtained `kubeconfig` file just before using the `kubecm add` command.
 
 To view all your contexts in your `kubeconfig` file, you can run the following command:
 ```sh
