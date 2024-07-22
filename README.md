@@ -43,7 +43,7 @@ These commands will delete the *cluster1* configuration.
 
 So, to update a configuration, you should first delete it, and afterwards add it again.
 
-Tip: If you use the same `kubernetes` distribution for different clusters, usually the default context has the same name, like *cluster1* as used in the examples. In such a scenario, it is a good idea to rename the configuration to something else like *devCluster*, *productionCluster*, etc. You can rename the context components (cluster, context and user)in the obtained `kubeconfig` file just before using the `kubecm add` command.
+Tip: If you use the same `kubernetes` distribution for different clusters, usually the default context has the same name, like *cluster1* as used in the examples. In such a scenario, it is a good idea to rename the configuration to something else like *devCluster*, *productionCluster*, etc. You can rename the context components (cluster, context and user) in the obtained `kubeconfig` file just before using the `kubecm add` command.
 
 To view all your contexts in your `kubeconfig` file, you can run the following command:
 ```sh
@@ -54,3 +54,9 @@ To change the cluster in your `kubeconfig` file, for *cluster1* for example, you
 ```sh
 kubectx cluster1
 ```
+
+You can run in the situation where you want to extract a context from a `kubeconfig` file that has access to many clusters. This is usually the case when you want to provide a single specific cluster configuration as an environment variable to a pipeline. You can do this using:
+```sh
+kubectl config view --minify --flatten > currentClusterKubeconfig.yaml
+```
+Note that this command will extract your current context only. Use `kubectx` to switch the cluster to the desired one before running the extraction command.
